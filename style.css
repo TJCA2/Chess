@@ -1,0 +1,19 @@
+#board {
+    width: 400px;
+    height: 400px;
+    display: flex;     /* enable flex layout */
+    flex-wrap: wrap;   /* allow items to wrap */
+}
+
+.square {
+    height: 50px;
+    width: 50px;
+}
+
+.dark {
+    background-color: #6B4A2D;
+}
+
+.light {
+    background-color: #E6D3A3;
+}
