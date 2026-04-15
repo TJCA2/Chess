@@ -10,6 +10,18 @@
 <div id="board"></div>
 <p>It is <span id="player"></span>'s turn.</p>
 <p id="display"></p>
+<p id="game-status"></p>
+<div id="captured-black"></div>
+<div id="captured-white"></div>
+<ol id="move-history"></ol>
+
+<div id="promotion-modal" hidden>
+    <p>Promote pawn to:</p>
+    <button onclick="completePromotion('queen')">Queen</button>
+    <button onclick="completePromotion('rook')">Rook</button>
+    <button onclick="completePromotion('bishop')">Bishop</button>
+    <button onclick="completePromotion('knight')">Knight</button>
+</div>
 
 <script src="pieces.js"></script>
 <script src="chess.js"></script>
