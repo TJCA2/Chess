@@ -4,7 +4,6 @@ const player = document.querySelector("#player");
 const gameStatusEl = document.querySelector("#game-status");
 const capturedBlackEl = document.querySelector("#captured-black");
 const capturedWhiteEl = document.querySelector("#captured-white");
-const moveHistoryEl = document.querySelector("#move-history");
 const width = 8;
 let playerTurn = 'white';
 player.textContent = 'white';
@@ -136,7 +135,6 @@ function executeMove(target) {
                 return;
             }
             moveHistory.push({ player: playerTurn, piece: movingPiece.id, from: fromId, to: targetId, captured: capturedId });
-            updateMoveHistoryDisplay();
             updateGameStatus();
             changePlayer();
             return;
@@ -180,7 +178,6 @@ function executeMove(target) {
                 return;
             }
             moveHistory.push({ player: playerTurn, piece: movingPiece.id, from: fromId, to: targetId, captured: isEnPassantMove ? 'pawn' : null });
-            updateMoveHistoryDisplay();
             updateGameStatus();
             changePlayer();
             return;
@@ -555,16 +552,6 @@ function updateCapturedDisplay(capturingPlayer) {
     span.classList.add('captured-piece');
     span.textContent = pieceAbbr[lastCaptured] ?? lastCaptured;
     el.append(span);
-}
-
-function updateMoveHistoryDisplay() {
-    const move = moveHistory[moveHistory.length - 1];
-    const li = document.createElement('li');
-    const abbr = pieceAbbr[move.piece] || move.piece;
-    const capturedText = move.captured ? `x${pieceAbbr[move.captured] || move.captured}` : '';
-    li.textContent = `${move.player}: ${abbr || move.piece}${move.from}–${move.to}${capturedText ? ' ' + capturedText : ''}`;
-    moveHistoryEl.append(li);
-    moveHistoryEl.scrollTop = moveHistoryEl.scrollHeight;
 }
 
 // After each valid move, update the en passant state.
