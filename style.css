@@ -1,19 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 #board {
-    width: 400px;
-    height: 400px;
+    width: 560px;
+    height: 560px;
     display: flex;     /* enable flex layout */
     flex-wrap: wrap;   /* allow items to wrap */
 }
 
 .square {
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
     position: relative;
 }
 
 .square svg {
     position: relative;
-    margin: 3px;
+    margin: 5px;
     z-index: -9;
 }
 
